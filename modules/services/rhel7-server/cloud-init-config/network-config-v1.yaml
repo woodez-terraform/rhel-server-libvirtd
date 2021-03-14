@@ -1,0 +1,9 @@
+version: 1
+config:
+ - type: physical
+   name: ${interface}
+   subnets:
+     - type: static
+       address: ${ipaddy}
+       netmask: ${subnet}
+       gateway: ${gateway}
