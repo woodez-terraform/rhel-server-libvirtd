@@ -11,10 +11,10 @@ terraform {
 
 
 # create pool
-resource "libvirt_pool" "centos" {
+resource "libvirt_pool" "${var.hostname.split(".")[1]}" {
  name = "${var.hostname.split(".")[1]}-pool"
  type = "dir"
- path = "/vm/centos-pool/"
+ path = "/vm/${var.hostname.split(".")[1]}-pool/"
 }
 
 # create image
