@@ -12,7 +12,7 @@ terraform {
 
 # create pool
 resource "libvirt_pool" "centos" {
- name = "${var.hostname.split(".")[1]}-pool"
+ name = split(".", ${var.hostname})[1]
  type = "dir"
  path = "/vm/centos-pool/"
 }
