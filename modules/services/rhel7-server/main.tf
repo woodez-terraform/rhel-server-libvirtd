@@ -18,7 +18,7 @@ terraform {
 #}
 
 # create pool
-resource "libvirt_pool" var.vmpool {
+resource "libvirt_pool" "${var.vmpool}" {
  name = var.vmpool
  type = "dir"
  path = format("%s%s/","/vm/",var.vmpool)
