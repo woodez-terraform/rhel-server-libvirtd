@@ -32,3 +32,8 @@ variable cpu_num {
   type      = number
   default   = 1
 }
+
+variable vmpool {
+  type      = string
+  default   = ""
+}
