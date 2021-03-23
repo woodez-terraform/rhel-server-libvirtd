@@ -11,13 +11,6 @@ terraform {
 
 
 # create pool
-# resource "libvirt_pool" "centos" {
-# name = format("%s%s",split(".", var.hostname)[1],"-pool")
-# type = "dir"
-# path = format("%s%s%s/","/vm/",split(".", var.hostname)[1],"-pool")
-#}
-
-# create pool
 resource "libvirt_pool" "centos" {
  name = var.vmpool
  type = "dir"
@@ -28,7 +21,6 @@ resource "libvirt_pool" "centos" {
 resource "libvirt_volume" "image-qcow2" {
  name = split(".", var.hostname)[0]
  pool = libvirt_pool.centos.name
-# source ="${path.module}/downloads/CentOS-7-x86_64-GenericCloud.qcow2"
  source ="/vm/downloads/CentOS-7-x86_64-GenericCloud.qcow2"
  format = "qcow2"
 }
@@ -77,7 +69,7 @@ resource "libvirt_domain" "host-domain" {
  # name should be unique!
    name = var.hostname
    memory = var.mem
-   vcpu = 1
+   vcpu = var.cpu_num
  # add the cloud init disk to share user data
    cloudinit = libvirt_cloudinit_disk.commoninit.id
 
