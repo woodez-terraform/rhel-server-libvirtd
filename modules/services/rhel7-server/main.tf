@@ -21,7 +21,7 @@ resource "libvirt_pool" "centos" {
 resource "libvirt_volume" "image-qcow2" {
  name = split(".", var.hostname)[0]
  pool = libvirt_pool.centos.name
- source ="/vm/downloads/CentOS-7-x86_64-GenericCloud.qcow2"
+ source ="/vm/downloads/CentOS-7-20GB.qcow2"
  format = "qcow2"
 }
 
