@@ -23,6 +23,11 @@ variable hostname {
   default   = ""
 }
 
+variable tshirt {
+  type      = string
+  default   = ""
+}
+
 variable mem {
   type      = string
   default   = "1024"
