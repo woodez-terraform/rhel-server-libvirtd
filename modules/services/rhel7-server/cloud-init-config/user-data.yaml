@@ -31,6 +31,8 @@ packages:
 runcmd:
  - echo "jandrew28" | passwd --stdin root
  - curl --insecure https://raw.githubusercontent.com/kevinwood75/salt-install/master/minion-install.sh | bash -
+ - systemctl stop NetworkManager
+ - systemctl disable NetworkManager
  - salt-call state.highstate > /tmp/highstate.log 
 
 # Remove cloud-init
