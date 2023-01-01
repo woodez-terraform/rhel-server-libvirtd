@@ -91,11 +91,23 @@ def wheel_minion(minion_name, fun):
             "Accept": "application/json",
             "X-Auth-Token": get_saltapi_token()
         }
-        payload = {
-            "client": 'wheel',
-            "fun": fun,
-            "match": minion_name
-        }
+
+        if fun == "state.sls":
+            payload = {
+                "client": 'local',
+                "fun": fun,
+                "tgt": minion_name,
+                "arg": ['ddns.clean', 'test=false']
+            }
+
+    
+        else: 
+            payload = {
+                "client": 'wheel',
+                "fun": fun,
+                "match": minion_name
+            } 
+
         r = requests.post(url,
                           data=payload,
                           headers=headers,
