@@ -30,12 +30,12 @@ variable tshirt {
 
 variable mem {
   type      = string
-  default   = "1024"
+  default   = "4096"
 }
 
 variable cpu_num {
   type      = number
-  default   = 1
+  default   = 2
 }
 
 variable vmpool {
