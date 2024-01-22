@@ -78,6 +78,9 @@ resource "libvirt_domain" "host-domain" {
      network_name = "woodez_net" 
    }
 
+   cpu {
+     mode = "host-passthrough"
+   }
 
    disk {
      volume_id = libvirt_volume.image-qcow2.id
