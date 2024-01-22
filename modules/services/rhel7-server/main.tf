@@ -78,8 +78,9 @@ resource "libvirt_domain" "host-domain" {
      network_name = "woodez_net" 
    }
 
-   cpu {
-     mode = "host-passthrough"
+   raw {
+     type = "kvm"
+     data = "<cpu mode='host-passthrough'></cpu>"
    }
 
    disk {
